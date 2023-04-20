@@ -1,16 +1,3 @@
-// List of Base Drinks & Mixers
-let baseSpirits = [
-    {name: "Vodka"},
-    {name: "Whiskey"},
-    {name: "Bourbon"},
-    {name: "Tequila"},
-    {name: "Gin"},
-    {name: "Rum"},
-    {name: "Brandy"},
-    {name: "Beer"},
-    {name: "Wine"},
-    {name: "Scotch"},
-    ];
 
 // List of Base Spirits & Mixers
 let baseSpirits = [
@@ -37,7 +24,7 @@ let baseMixers = [
   {name: "Pineapple Juice"},
   {name: "Coconut Water"},
   {name: "Ginger Ale"},
-      ];
+  ];
 
 // Random Number Generator for Spirits/Mixers
 function generateRandomNumber(min, max) {
@@ -49,12 +36,6 @@ function getName(array) {
   const index = generateRandomNumber(0, array.length - 1);
   return array[index].name;
 }
-
-const baseSpiritsOpt = getName(baseSpirits);
-const baseMixersOpt = getName(baseMixers);
-
-console.log(baseSpiritsOpt);
-console.log(baseMixersOpt);
 
 const baseSpiritsOpt = getName(baseSpirits);
 const baseMixersOpt = getName(baseMixers);
@@ -96,3 +77,32 @@ accountButton.addEventListener("click", () => {
         })
       }  
     });
+
+    loginButton.addEventListener("click", function() {
+      const email = emailInput.value;
+      const password = passwordInput.value;
+    
+      // Login Fetch
+      fetch("http://127.0.0.1:5000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          user_email: emailInput.value,
+          user_password: passwordInput.value
+        })
+      })
+      .then(response => {
+        if (response.ok) {      
+          alert("Login was succesful!")
+          window.location.href="/index"
+        } else {
+          throw new Error("Login failed, please try again");
+        }
+      })
+      .catch(error => {
+        console.error("Error:", error);
+      });
+    });
+    
