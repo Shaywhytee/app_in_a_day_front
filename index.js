@@ -5,11 +5,11 @@ function generateRandomNumber(min, max) {
 
 const min = 1;
 const max = 10;
-const baseDrink = generateRandomNumber(min, max);
-const baseMixers = generateRandomNumber(min, max);
+const baseDrinkOpt = generateRandomNumber(min, max);
+const baseMixersOpt = generateRandomNumber(min, max);
 
-console.log(baseDrink);
-console.log(baseMixers);
+console.log(baseDrinkOpt);
+console.log(baseMixersOpt);
 
 
 
