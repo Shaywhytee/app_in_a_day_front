@@ -1,3 +1,17 @@
+// List of Base Drinks & Mixers
+let baseSpirits = [
+    {name: "Vodka"},
+    {name: "Whiskey"},
+    {name: "Bourbon"},
+    {name: "Tequila"},
+    {name: "Gin"},
+    {name: "Rum"},
+    {name: "Brandy"},
+    {name: "Beer"},
+    {name: "Wine"},
+    {name: "Scotch"},
+    ];
+
 // List of Base Spirits & Mixers
 let baseSpirits = [
   {name: "Vodka"},
@@ -35,6 +49,12 @@ function getName(array) {
   const index = generateRandomNumber(0, array.length - 1);
   return array[index].name;
 }
+
+const baseSpiritsOpt = getName(baseSpirits);
+const baseMixersOpt = getName(baseMixers);
+
+console.log(baseSpiritsOpt);
+console.log(baseMixersOpt);
 
 const baseSpiritsOpt = getName(baseSpirits);
 const baseMixersOpt = getName(baseMixers);
