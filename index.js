@@ -1,3 +1,4 @@
+
 // List of Base Drinks & Mixers
 let baseDrink = [
     {name: "Vodka"},
@@ -25,8 +26,8 @@ let baseMixers = [
     {name: "Ginger Ale"},
         ];
 
- // Random Number Generator for Spirits/Mixers
- function generateRandomNumber(min, max) {
+// Random Number Generator for Spirits/Mixers
+function generateRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
