@@ -46,7 +46,7 @@ console.log(baseMixersOpt);
 
 const textWrapper = document.querySelector(".text_wrapper");
 
-
+// Start Button
 const startBtn = document.getElementById("start");
 startBtn.addEventListener("click", () => {
    textWrapper.innerHTML = ""
@@ -57,66 +57,10 @@ startBtn.addEventListener("click", () => {
    textWrapper.appendChild(results)
 })
 
+//Log out Button
+const logOutBtn = document.getElementById("log_out")
+logOutBtn.addEventListener("click", () => {
+  alert("Success: Logged out")
+  window.location.href = "login.html"
+})
 
-loginButton.addEventListener("click", function() {
-    const email = emailInput.value;
-    const password = passwordInput.value;
-  
-    // Login Fetch
-    fetch("http://127.0.0.1:5000/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        user_email: emailInput.value,
-        user_password: passwordInput.value
-      })
-    })
-    .then(response => {
-      if (response.ok) {      
-        alert("Login was succesful!")
-        window.location.href="/index"
-      } else {
-        throw new Error("Login failed, please try again");
-      }
-    })
-    .catch(error => {
-      console.error("Error:", error);
-    });
-  });
-
-
-//   Account Creation Fetch Call
-accountButton.addEventListener("click", () => {
-    const newEmail = emailInput.value;
-    const newPassword = passwordInput.value;
-    const verfNewPassword = verfNewPasswordInput.value;
-
-    if (passwordInput.value != verfNewPassword.value) {
-        alert("Error: Passwords do not match!")
-
-    } else {
-        fetch("http://127.0.0.1:5000/account/create", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                user_email: emailInput.value,
-                user_password: passwordInput.value
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert("New account created!")
-                    window.location.href=("/login")
-                } else {
-                    throw new Error("Account creation failed! Please try again...")
-                }
-            }) 
-            .catch(error => {
-                console.log("Error:", error)
-            })
-        })
-      }  
-    });
