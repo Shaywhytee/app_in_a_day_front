@@ -37,11 +37,25 @@ function getName(array) {
   return array[index].name;
 }
 
-const baseSpiritsOpt = getName(baseSpirits);
-const baseMixersOpt = getName(baseMixers);
+let baseSpiritsOpt
+let baseMixersOpt 
 
 console.log(baseSpiritsOpt);
 console.log(baseMixersOpt);
+
+
+const textWrapper = document.querySelector(".text_wrapper");
+
+
+const startBtn = document.getElementById("start");
+startBtn.addEventListener("click", () => {
+   textWrapper.innerHTML = ""
+    baseSpiritsOpt = getName(baseSpirits);
+    baseMixersOpt =  getName(baseMixers);
+    const results = document.createElement("p");
+    results.textContent = `${baseSpiritsOpt} and ${baseMixersOpt}`
+   textWrapper.appendChild(results)
+})
 
 
 loginButton.addEventListener("click", function() {
