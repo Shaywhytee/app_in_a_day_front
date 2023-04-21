@@ -57,7 +57,14 @@ function playPour(){
     audioClink.play()
   }, 3000)
 }
-
+let backgroundAudio = new Audio('audio/chatter.mp3');
+let backgroundMusic = new Audio('audio/tavern_music.mp3');
+function backgroundAudioPlay(){
+  backgroundMusic.volume = 0.06;
+  backgroundAudio.volume = 0.05;
+  backgroundMusic.play();
+  backgroundAudio.play();
+}
 // Shuffle Options
 function shuffleOptions(){
   playTick()
@@ -119,3 +126,4 @@ logOutBtn.addEventListener("click", () => {
   window.location.href = "login.html"
 })
 
+backgroundAudioPlay()
