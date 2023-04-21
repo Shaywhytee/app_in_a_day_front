@@ -24,10 +24,11 @@ createAccountBtn.addEventListener("click", () => {
         })
         .then(response => {
             if (response.ok) {
-                window.location.href= "/login"
+                window.location.href= "login.html"
                 alert("New account created!")
             } else {
-                throw new Error("Account creation failed! Please try again...")
+                throw new Error("Account creation failed! Please try again..."), alert("Account creation failed")
+                
             }
         }) 
         .catch(error => {

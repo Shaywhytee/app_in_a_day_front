@@ -43,18 +43,73 @@ let baseMixersOpt
 console.log(baseSpiritsOpt);
 console.log(baseMixersOpt);
 
-
+// Audio
 const textWrapper = document.querySelector(".text_wrapper");
+let audioTick = new Audio('audio/tick.wav')
+function playTick(){
+  audioTick.play()
+}
+let audioPour = new Audio('audio/pouring_drink.wav')
+let audioClink = new Audio('audio/glass_tink.mp3')
+function playPour(){
+  audioPour.play()
+  setTimeout(function() {
+    audioClink.play()
+  }, 3000)
+}
 
+// Shuffle Options
+function shuffleOptions(){
+  playTick()
+  textWrapper.innerHTML = ""
+  baseSpiritsOpt = getName(baseSpirits);
+  baseMixersOpt =  getName(baseMixers);
+  const results = document.createElement("p");
+  results.textContent = `${baseSpiritsOpt} and ${baseMixersOpt}`
+  textWrapper.appendChild(results)
+}
 // Start Button
 const startBtn = document.getElementById("start");
 startBtn.addEventListener("click", () => {
-   textWrapper.innerHTML = ""
-    baseSpiritsOpt = getName(baseSpirits);
-    baseMixersOpt =  getName(baseMixers);
-    const results = document.createElement("p");
-    results.textContent = `${baseSpiritsOpt} and ${baseMixersOpt}`
-   textWrapper.appendChild(results)
+  startBtn.disabled = true
+  shuffleOptions
+  setTimeout(function() {
+    shuffleOptions()
+    setTimeout(function() {
+      shuffleOptions()
+      setTimeout(function() {
+        shuffleOptions()
+        setTimeout(function() {
+          shuffleOptions()
+          setTimeout(function() {
+            shuffleOptions()
+            setTimeout(function() {
+              shuffleOptions()
+              setTimeout(function() {
+                shuffleOptions()
+                setTimeout(function() {
+                  shuffleOptions()
+                  setTimeout(function() {
+                    shuffleOptions()
+                    setTimeout(function() {
+                      shuffleOptions()
+                      setTimeout(function() {
+                        startBtn.disabled = false
+                        shuffleOptions()
+                        setTimeout(function() {
+                          playPour()
+                        }, 500)
+                      }, 1500);
+                    }, 1000);
+                  }, 500);
+                }, 250);
+              }, 250);
+            }, 100);
+          }, 100);
+        }, 100);
+      }, 100);
+    }, 100);
+  }, 50);
 })
 
 //Log out Button
