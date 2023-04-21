@@ -1,16 +1,16 @@
 
 // List of Base Drinks & Mixers
 let baseSpirits = [
-    {name: "Vodka"},
-    {name: "Whiskey"},
-    {name: "Bourbon"},
-    {name: "Tequila"},
-    {name: "Gin"},
-    {name: "Rum"},
-    {name: "Brandy"},
-    {name: "Beer"},
-    {name: "Wine"},
-    {name: "Scotch"},
+    {name: "Vodka", ac : 35},
+    {name: "Whiskey", ac : 30},
+    {name: "Bourbon", ac : 40},
+    {name: "Tequila", ac : 45},
+    {name: "Gin", ac : 45},
+    {name: "Rum", ac : 30},
+    {name: "Brandy", ac : 25},
+    {name: "Beer", ac : 7},
+    {name: "Wine", ac : 10},
+    {name: "Scotch", ac : 42},
     ];
 
 let baseMixers = [
