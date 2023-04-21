@@ -58,10 +58,10 @@ function playPour(){
 let backgroundAudio = new Audio('audio/chatter.mp3');
 let backgroundMusic = new Audio('audio/tavern_music.mp3');
 function backgroundAudioPlay(){
-  backgroundMusic.volume = 0.06;
-  backgroundAudio.volume = 0.05;
-  backgroundMusic.play();
-  backgroundAudio.play();
+  backgroundMusic.volume = 0.06
+  backgroundAudio.volume = 0.05
+  backgroundMusic.play()
+  backgroundAudio.play()
 };
 backgroundAudioPlay();
 // Shuffle Options
