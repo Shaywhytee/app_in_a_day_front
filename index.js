@@ -57,13 +57,21 @@ function playPour(){
 };
 let backgroundAudio = new Audio('audio/chatter.mp3');
 let backgroundMusic = new Audio('audio/tavern_music.mp3');
+let diceRollAudio = new Audio('audio/dice_roll.wav');
 function backgroundAudioPlay(){
-  backgroundMusic.volume = 0.06;
-  backgroundAudio.volume = 0.05;
-  backgroundMusic.play();
-  backgroundAudio.play();
+  backgroundMusic.volume = 0.05
+  backgroundAudio.volume = 0.05
+  backgroundMusic.loop = true
+  backgroundAudio.loop = true
+  backgroundMusic.play()
+  backgroundAudio.play()
 };
 backgroundAudioPlay();
+function setVolume(volume){
+  backgroundAudio.volume = volume
+  backgroundMusic.volume = volume
+};
+
 // Shuffle Options
 function shuffleOptions(){
   playTick()
@@ -78,6 +86,7 @@ function shuffleOptions(){
 const startBtn = document.getElementById("start");
 startBtn.addEventListener("click", () => {
   startBtn.disabled = true
+  diceRollAudio.play()
   shuffleOptions
   setTimeout(function() {
     shuffleOptions()
