@@ -37,27 +37,33 @@ function getName(array) {
   return array[index].name;
 }
 
-let baseSpiritsOpt
-let baseMixersOpt 
+let baseSpiritsOpt;
+let baseMixersOpt;
 
-console.log(baseSpiritsOpt);
-console.log(baseMixersOpt);
 
 // Audio
 const textWrapper = document.querySelector(".text_wrapper");
-let audioTick = new Audio('audio/tick.wav')
+let audioTick = new Audio('audio/tick.wav');
 function playTick(){
   audioTick.play()
-}
-let audioPour = new Audio('audio/pouring_drink.wav')
-let audioClink = new Audio('audio/glass_tink.mp3')
+};
+let audioPour = new Audio('audio/pouring_drink.wav');
+let audioClink = new Audio('audio/glass_tink.mp3');
 function playPour(){
   audioPour.play()
   setTimeout(function() {
     audioClink.play()
-  }, 3000)
-}
-
+  }, 3000);
+};
+let backgroundAudio = new Audio('audio/chatter.mp3');
+let backgroundMusic = new Audio('audio/tavern_music.mp3');
+function backgroundAudioPlay(){
+  backgroundMusic.volume = 0.06;
+  backgroundAudio.volume = 0.05;
+  backgroundMusic.play();
+  backgroundAudio.play();
+};
+backgroundAudioPlay();
 // Shuffle Options
 function shuffleOptions(){
   playTick()
@@ -98,7 +104,7 @@ startBtn.addEventListener("click", () => {
                         shuffleOptions()
                         setTimeout(function() {
                           playPour()
-                        }, 500)
+                        }, 500);
                       }, 1500);
                     }, 1000);
                   }, 500);
@@ -118,4 +124,3 @@ logOutBtn.addEventListener("click", () => {
   alert("Success: Logged out")
   window.location.href = "login.html"
 })
-
