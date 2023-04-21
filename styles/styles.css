@@ -54,7 +54,8 @@ body {
 
 .center_column {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 5fr 5fr;
+
     gap: 10px;
     height: 100%;
     width: 100%;
@@ -89,9 +90,12 @@ body {
     background-color: rgb(216, 158, 50);
     border-radius: 10px;
     padding: 5px; 
-    width: 50%;
+    width: 60%;
     margin: 0 auto;
     margin-top: 300px;
+    height: 15vh;
+    align-self: end;
+
 }
 
 .btn_wrapper {
@@ -101,6 +105,19 @@ body {
     align-items: center;
     gap: 10px;
 
+}
+
+.intoxication {
+    display: flex;
+    justify-content: center;
+    gap: 38px;
+    background-color: rgb(216, 158, 50);
+    border-radius: 10px;
+    height: 5vh;
+}
+
+.intoxication meter {
+    
 }
 
 
