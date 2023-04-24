@@ -91,17 +91,17 @@ function shuffleOptions(){
 let players
 let selectedNumber;
 const dimmer = document.querySelector(".dimmer")
-dimmer.classList.add(".active")
+dimmer.classList.add("active")
 const selectPlayersWrapper = document.querySelector(".select_player_wrapper")
-selectPlayersWrapper.classList.add(".active")
+selectPlayersWrapper.classList.add("active")
 const playersWrapper = document.querySelector(".player_wrapper")
 const onePlayerButton = document.getElementById("one_player_button")
 const twoPlayerButton = document.getElementById("two_player_button")
 const confirmButton = document.getElementById("confirm_button")
 confirmButton.addEventListener("click", () => {
   if (selectedNumber > 0) {
-    dimmer.classList.remove(".active")
-    selectPlayersWrapper.classList.remove(".active")
+    dimmer.classList.remove("active")
+    selectPlayersWrapper.classList.remove("active")
   } else {
     
   }
