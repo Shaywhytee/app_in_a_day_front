@@ -78,9 +78,8 @@ function shuffleOptions(){
   textWrapper.innerHTML = ""
   baseSpiritsOpt = getName(baseSpirits);
   baseMixersOpt =  getName(baseMixers);
-  console.log(baseSpiritsOpt)
   spiritsAc = baseSpiritsOpt.ac
-  console.log(spiritsAc)
+
   const results = document.createElement("p");
   results.textContent = `${baseSpiritsOpt.name} and ${baseMixersOpt.name}`
   textWrapper.appendChild(results)
@@ -88,7 +87,7 @@ function shuffleOptions(){
 }
 
 // Select Number of Players
-let players;
+let players = []
 let selectedNumber;
 const dimmer = document.querySelector(".dimmer")
 dimmer.classList.add("active")
@@ -102,6 +101,7 @@ confirmButton.addEventListener("click", () => {
   if (selectedNumber > 0) {
     dimmer.classList.remove("active")
     selectPlayersWrapper.classList.remove("active")
+    getPlayers();
   } else {
 
   }
@@ -117,28 +117,58 @@ twoPlayerButton.addEventListener("click", () =>{
   return(selectedNumber)
 })
 
-function getPlayers(selectedNumber) {
-  players = []
+function getPlayers() {
   for(let n = 0; n < selectedNumber; n++) {
+    console.log(n)
+    const playerContainer = document.createElement("div")
+    playerContainer.classList.add(`player_${n}`)
+    playerContainer.classList.add(`player_info`)
     const player = document.createElement("p")
+    const playerName = `player_${n}`
     player.textContent = `Player ${[n + 1]}`
-    playersWrapper.appendChild(player)
-    player.push(player)
+    const playerMeter = document.createElement("meter")
+    playerMeter.classList.add(`meter_${n}`)
+    playerMeter.max = 200
+    playerMeter.value = 0
+    playerContainer.appendChild(player)
+    playerContainer.appendChild(playerMeter)
+    playersWrapper.appendChild(playerContainer)
+    players.push(playerName)
   } 
   return players
 }
 
+// Player Turns
+let turnNumber = 0
+function playerTurns() {
+  turnNumber += 1
+  console.log(turnNumber + "Turn Check")
+  return turnNumber
+}
+let playerTurnInd
+function checkPlayerTurn() {
+playerTurns()
+  console.log(players.length + "Player len")
+  if(turnNumber % players.length === 0) {
+    playerTurnInd = players.length
+    console.log(playerTurnInd + "if check")
+    return playerTurnInd
+  } else {
+    playerTurnInd = turnNumber % players.length
+    console.log(playerTurnInd + "else check")
+    return playerTurnInd
+  }
+}
+  
 // Player Intoxication
-const playerIntoxicationMeter = document.getElementById("intoxication_meter");
-playerIntoxicationMeter.value = 0;
-let playerIntoxication = 0;
 let spiritsAc;
 
 function checkIntoxication() {
-  playerIntoxication += spiritsAc
-  console.log(spiritsAc)
-  playerIntoxicationMeter.value += spiritsAc
-  if (playerIntoxication >= 200) {
+  checkPlayerTurn()
+  console.log(playerTurnInd + "intox check")
+  const currentMeter = document.querySelector(`.meter_${playerTurnInd -1}`)
+  currentMeter.value += spiritsAc
+  if (currentMeter.value >= 200) {
     audioVomit.play()
     let pageContainer = document.querySelector(".page_container");
     pageContainer.style.opacity = "0%";
