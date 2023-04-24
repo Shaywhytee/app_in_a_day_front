@@ -25,16 +25,15 @@ let baseMixers = [
     {name: "Coconut Water"},
     {name: "Ginger Ale"},
         ];
-
-// Random Number Generator for Spirits/Mixers
-function generateRandomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+        // Random Number Generator for Spirits/Mixers
+        function generateRandomNumber(min, max) {
+          return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 // Get Name Function
 function getName(array) {
   const index = generateRandomNumber(0, array.length - 1);
-  return array[index].name;
+  return array[index];
 }
 
 let baseSpiritsOpt;
@@ -47,6 +46,7 @@ let audioTick = new Audio('audio/tick.wav');
 function playTick(){
   audioTick.play()
 };
+let audioVomit = new Audio('audio/vomit.mp3')
 let audioPour = new Audio('audio/pouring_drink.wav');
 let audioClink = new Audio('audio/glass_tink.mp3');
 function playPour(){
@@ -78,9 +78,41 @@ function shuffleOptions(){
   textWrapper.innerHTML = ""
   baseSpiritsOpt = getName(baseSpirits);
   baseMixersOpt =  getName(baseMixers);
+  console.log(baseSpiritsOpt)
+  spiritsAc = baseSpiritsOpt.ac
+  console.log(spiritsAc)
   const results = document.createElement("p");
-  results.textContent = `${baseSpiritsOpt} and ${baseMixersOpt}`
+  results.textContent = `${baseSpiritsOpt.name} and ${baseMixersOpt.name}`
   textWrapper.appendChild(results)
+  return spiritsAc
+}
+// Player Intoxication
+const playerIntoxicationMeter = document.getElementById("intoxication_meter");
+playerIntoxicationMeter.value = 0;
+let playerIntoxication = 0;
+let spiritsAc;
+
+function checkIntoxication() {
+  playerIntoxication += spiritsAc
+  console.log(spiritsAc)
+  playerIntoxicationMeter.value += spiritsAc
+  if (playerIntoxication >= 200) {
+    audioVomit.play()
+    let pageContainer = document.querySelector(".page_container");
+    pageContainer.style.opacity = "0%";
+    setTimeout(function() {
+      pageContainer.innerHTML = "";
+      let thanksMessageWrapper = document.createElement("div");
+      thanksMessageWrapper.classList.add("thanks_message_wrapper")
+      let thanksMessageText = document.createElement("p");
+      thanksMessageText.textContent = "You are Intoxicated!\nThanks for playing!";
+      thanksMessageWrapper.appendChild(thanksMessageText);
+      pageContainer.appendChild(thanksMessageWrapper);
+      setTimeout(function() {
+        pageContainer.style.opacity ="100%";
+      }, 2000)
+    }, 2000)
+  };
 }
 // Start Button
 const startBtn = document.getElementById("start");
@@ -112,6 +144,7 @@ startBtn.addEventListener("click", () => {
                         startBtn.disabled = false
                         shuffleOptions()
                         setTimeout(function() {
+                          checkIntoxication()
                           playPour()
                         }, 500);
                       }, 1500);
