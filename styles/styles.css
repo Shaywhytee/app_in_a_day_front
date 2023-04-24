@@ -5,6 +5,7 @@ body {
     background-image: url(../images/background/FkBjGFwX0AEoDRO.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    margin: 0px;
   }
 
 .page_container {
@@ -182,3 +183,18 @@ meter::after {
 .thanks_message_wrapper p {
     margin-top: 3vh;
 }
+
+.dimmer {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 40%;
+    display: none;
+}
+
+.dimmer .active {
+    display: block;
+}
+
