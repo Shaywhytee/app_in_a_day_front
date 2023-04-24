@@ -166,3 +166,4 @@ logOutBtn.addEventListener("click", () => {
   alert("Success: Logged out")
   window.location.href = "login.html"
 })
+
