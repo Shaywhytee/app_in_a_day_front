@@ -192,14 +192,16 @@ meter::after {
     opacity: 40%;
     display: none;
 }
-.active {
-    display: block;
-}
 
 .select_player_wrapper{
     position: absolute;
     z-index: 2;
     width: 30%;
     height: 50%;
+    display: none;
+}
+
+.active {
+    display: block;
 }
 
