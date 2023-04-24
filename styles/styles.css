@@ -102,19 +102,6 @@ body {
 
 }
 
-.intoxication {
-    display: flex;
-    justify-content: center;
-    gap: 38px;
-    background-color: rgb(216, 158, 50);
-    border-radius: 10px;
-    height: 5vh;
-}
-
-.intoxication meter {
-    
-}
-
 .intoxication_wrapper {
     display: flex;
     flex-direction: column;
