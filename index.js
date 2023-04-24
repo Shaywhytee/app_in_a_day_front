@@ -88,12 +88,12 @@ function shuffleOptions(){
 }
 
 // Select Number of Players
-let players
+let players;
 let selectedNumber;
 const dimmer = document.querySelector(".dimmer")
-dimmer.classList.add(".active")
+dimmer.classList.add("active")
 const selectPlayersWrapper = document.querySelector(".select_player_wrapper")
-selectPlayersWrapper.classList.add(".active")
+selectPlayersWrapper.classList.add("active")
 const playersWrapper = document.querySelector(".player_wrapper")
 const onePlayerButton = document.getElementById("one_player_button")
 const twoPlayerButton = document.getElementById("two_player_button")
@@ -103,7 +103,7 @@ confirmButton.addEventListener("click", () => {
     dimmer.classList.remove(".active")
     selectPlayersWrapper.classList.remove(".active")
   } else {
-    
+
   }
 })
 
