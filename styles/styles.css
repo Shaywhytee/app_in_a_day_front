@@ -12,11 +12,10 @@ body {
     grid-template-columns: 1fr 2fr 1fr;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    max-width: 150vh;
+    width: 100vw;
+    height: 100vh;
     margin: 0 auto;
-    margin-top: 20vh;
-
+    transition: 2s;
 }
 
 .left_column {
@@ -54,7 +53,7 @@ body {
 
 .center_column {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 7fr 6fr;
     gap: 10px;
     height: 100%;
     width: 100%;
@@ -90,8 +89,9 @@ body {
     border-radius: 10px;
     padding: 5px; 
     width: 50%;
+    height: 20%;
+    align-self: end;
     margin: 0 auto;
-    margin-top: 300px;
 }
 
 .btn_wrapper {
@@ -103,4 +103,83 @@ body {
 
 }
 
+.intoxication_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 
+}
+
+/* Set the width and height of the meter element */
+meter {
+    width: 300px;
+    height: 20px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+
+  /* Style the meter bar in webkit browsers */
+meter::-webkit-meter-bar {
+  background-color: lightcoral;
+  border: 1px solid silver;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: width 1s ease-in-out;
+}
+
+  /* Style the meter bar in Firefox browsers */
+  meter::-moz-meter-bar {
+  background-color: lightcoral;
+  border: 1px solid #999;
+  border-radius: 10px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  
+}
+
+/* Style the value in webkit browsers */
+meter::-webkit-meter-optimum-value {
+  background: linear-gradient(180deg, rgba(134,110,0,1) 0%, rgba(255,209,0,1) 50%, rgba(134,110,0,1) 100%);
+  transition: width 1s ease-in-out;
+}
+
+/* Style the value in Firefox browsers */
+meter::-moz-meter-bar {
+  background: linear-gradient(180deg, rgba(134,110,0,1) 0%, rgba(255,209,0,1) 50%, rgba(134,110,0,1) 100%);/* Change the color of the value to green */
+  transition: width 1s ease-in-out;
+}
+
+meter::after {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url('images/center_column/meter_froth.jpg');
+    background-size: contain;
+}
+
+.thanks_message_wrapper {
+    position: absolute;
+    top: 50%;
+    right: 40%;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(216, 158, 50);
+    border-radius: 10px;
+    padding: 5px; 
+    width: 20vw;
+    height: 10vh;
+    text-align: center;
+    line-height: 2vh;
+    font-size: 2rem;
+    white-space: pre-wrap;
+    transition: 2s;
+
+}
+.thanks_message_wrapper p {
+    margin-top: 3vh;
+}
