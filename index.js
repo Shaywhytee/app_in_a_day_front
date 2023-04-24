@@ -86,6 +86,39 @@ function shuffleOptions(){
   textWrapper.appendChild(results)
   return spiritsAc
 }
+
+// Select Number of Players
+let players = [];
+let selectedNumber;
+const dimmer = document.querySelector(".dimmer")
+dimmer.classList.add(".active")
+const selectPlayersWrapper = document.querySelector(".select_player_wrapper")
+selectPlayersWrapper.classList.add(".active")
+const playersWrapper = document.querySelector(".player_wrapper")
+const onePlayerButton = document.getElementById("one_player_button")
+const twoPlayerButton = document.getElementById("two_player_button")
+onePlayerButton.addEventListener("click", () =>{
+  dimmer.classList.remove(".active")
+  selectedNumber = 1
+  selectPlayersWrapper.classList.remove(".active")
+  return(selectedNumber)
+})
+twoPlayerButton.addEventListener("click", () =>{
+  dimmer.classList.remove(".active")
+  selectPlayersWrapper.classList.remove(".active")
+  selectedNumber = 2
+  return(selectedNumber)
+})
+
+
+function getPlayers(selectedNumber) {
+  for(let n = 0; n < selectedNumber; n++) {
+    const player[n] = document.createElement("p")
+    player[n].textContent = "player One"
+    playersWrapper.appendChild(player[n])
+  }  
+}
+
 // Player Intoxication
 const playerIntoxicationMeter = document.getElementById("intoxication_meter");
 playerIntoxicationMeter.value = 0;
