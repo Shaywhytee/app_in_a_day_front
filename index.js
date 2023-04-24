@@ -88,7 +88,7 @@ function shuffleOptions(){
 }
 
 // Select Number of Players
-let players = [];
+let players
 let selectedNumber;
 const dimmer = document.querySelector(".dimmer")
 dimmer.classList.add(".active")
@@ -97,26 +97,35 @@ selectPlayersWrapper.classList.add(".active")
 const playersWrapper = document.querySelector(".player_wrapper")
 const onePlayerButton = document.getElementById("one_player_button")
 const twoPlayerButton = document.getElementById("two_player_button")
+const confirmButton = document.getElementById("confirm_button")
+confirmButton.addEventListener("click", () => {
+  if (selectedNumber > 0) {
+    dimmer.classList.remove(".active")
+    selectPlayersWrapper.classList.remove(".active")
+  } else {
+    
+  }
+})
+
 onePlayerButton.addEventListener("click", () =>{
-  dimmer.classList.remove(".active")
   selectedNumber = 1
-  selectPlayersWrapper.classList.remove(".active")
+  console.log(selectedNumber)
   return(selectedNumber)
 })
 twoPlayerButton.addEventListener("click", () =>{
-  dimmer.classList.remove(".active")
-  selectPlayersWrapper.classList.remove(".active")
   selectedNumber = 2
   return(selectedNumber)
 })
 
-
 function getPlayers(selectedNumber) {
+  players = []
   for(let n = 0; n < selectedNumber; n++) {
-    const player[n] = document.createElement("p")
-    player[n].textContent = "player One"
-    playersWrapper.appendChild(player[n])
-  }  
+    const player = document.createElement("p")
+    player.textContent = `Player ${[n + 1]}`
+    playersWrapper.appendChild(player)
+    player.push(player)
+  } 
+  return players
 }
 
 // Player Intoxication
@@ -199,3 +208,4 @@ logOutBtn.addEventListener("click", () => {
   alert("Success: Logged out")
   window.location.href = "login.html"
 })
+

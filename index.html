@@ -12,6 +12,11 @@
 </head>
 <body>
     <div class="dimmer"></div>
+    <div class="select_player_wrapper">
+        <button id="one_player_button">One Player</button>
+        <button id="two_player_button">two Player</button>
+        <button id="confirm_button">Confirm</button>
+    </div>
     <div class="page_container">
         <div class="left_column">
             <p>Vodka</p>
@@ -30,10 +35,12 @@
             <div class="game_title">
                 Drink Roulette!
             </div>
-            <div class="intoxication_wrapper">
-                <label for="intoxication_meter">Intoxication</label>
-                <meter id="intoxication_meter" name="intoxication_meter" value="0" max="200"></meter>
-            </div>  
+            <div class="players_wrapper">    
+                <div class="intoxication_wrapper">
+                    <label for="intoxication_meter">Intoxication</label>
+                    <meter id="intoxication_meter" name="intoxication_meter" value="0" max="200"></meter>
+                </div>  
+            </div>
             <div class="text_wrapper">
             </div>
                 <div class="btn_wrapper">
