@@ -100,8 +100,8 @@ const twoPlayerButton = document.getElementById("two_player_button")
 const confirmButton = document.getElementById("confirm_button")
 confirmButton.addEventListener("click", () => {
   if (selectedNumber > 0) {
-    dimmer.classList.remove(".active")
-    selectPlayersWrapper.classList.remove(".active")
+    dimmer.classList.remove("active")
+    selectPlayersWrapper.classList.remove("active")
   } else {
 
   }
