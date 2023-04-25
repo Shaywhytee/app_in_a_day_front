@@ -196,7 +196,7 @@ meter::after {
     display: block;
 }
 
-.select_player_wrapper{
+.select_player_wrapper {
     position: absolute;
     z-index: 2;
     width: 30%;
