@@ -103,7 +103,6 @@ confirmButton.addEventListener("click", () => {
     selectPlayersWrapper.classList.remove("active")
     getPlayers();
   } else {
-
   }
 })
 
@@ -126,6 +125,7 @@ function getPlayers() {
     const player = document.createElement("p")
     const playerName = `player_${n}`
     player.textContent = `Player ${[n + 1]}`
+    playersWrapper.appendChild(player)
     const playerMeter = document.createElement("meter")
     playerMeter.classList.add(`meter_${n}`)
     playerMeter.max = 200
